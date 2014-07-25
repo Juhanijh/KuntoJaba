@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="android.R.layout"/>
+<fullyQualifiedTypeName name="android.widget.CalendarView.OnDateChangeListener"/>
+<fullyQualifiedTypeName name="android.widget.TabHost"/>
+<fullyQualifiedTypeName name="android.app.ActionBar"/>
+<fullyQualifiedTypeName name="android.app.ActionBar.Tab"/>
+<fullyQualifiedTypeName name="com.insinoorityo.kuntojaba.HistoryActivity"/>
+<fullyQualifiedTypeName name="com.example.testi.R"/>
+<fullyQualifiedTypeName name="android.app.Fragment"/>
+<fullyQualifiedTypeName name="com.insinoorityo.kuntojaba.LogActivity"/>
+<fullyQualifiedTypeName name="com.example.KuntoJaba.R.drawable"/>
+<fullyQualifiedTypeName name="android.webkit.WebView.FindListener"/>
+<fullyQualifiedTypeName name="com.example.KuntoJaba.R.id"/>
+<fullyQualifiedTypeName name="android.util.Log"/>
+<fullyQualifiedTypeName name="android.R"/>
+<fullyQualifiedTypeName name="android.widget.CalendarView"/>
+</qualifiedTypeNameHistroy>
