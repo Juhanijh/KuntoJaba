@@ -1,0 +1,120 @@
+package com.insinoorityo.kuntojaba;
+
+import android.app.Fragment;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.GridView;
+import android.widget.Toast;
+
+import com.example.KuntoJaba.R;
+
+public class CalendarActivity extends Fragment {
+
+	GridView grid_august;
+	GridView grid_september;
+
+	String[] august = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+			"11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21",
+			"22", "23", "24", "25", "26", "27", "28", "29", "30", "31" };
+
+	String[] september = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+			"11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21",
+			"22", "23", "24", "25", "26", "27", "28", "29", "30", "31" };
+
+	@Override
+	public View onCreateView(LayoutInflater inlater, ViewGroup container,
+			Bundle savedInstanceState) {
+		
+		View rootView = inlater.inflate(R.layout.calendar_layout2, container, false);
+
+		grid_august = (GridView)rootView.findViewById(R.id.grid_august);
+		
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_list_item_1, august);
+		grid_august.setAdapter(adapter);
+		grid_august
+				.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+					@Override
+					public void onItemClick(AdapterView<?> parent, View view,
+							int position, long id) {
+						Toast.makeText(MainActivity.this,
+								"You Clicked at " + august[+position],
+								Toast.LENGTH_SHORT).show();
+					}
+				});
+
+		grid_august = (GridView) findViewById(R.id.grid_september);
+		ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,
+				android.R.layout.simple_list_item_1, september);
+
+		grid_august.setAdapter(adapter2);
+		grid_august
+				.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+					@Override
+					public void onItemClick(AdapterView<?> parent, View view,
+							int position, long id) {
+						Toast.makeText(MainActivity.this,
+								"You Clicked at " + september[+position],
+								Toast.LENGTH_SHORT).show();
+					}
+				});
+
+		
+		return rootView;
+	}
+}
+	/*
+	 * NÄÄ HELVETTII EI TOIMI :D:DD: Button add_button;
+	 * 
+	 * public View onCreateView(LayoutInflater inflater, ViewGroup container,
+	 * Bundle savedInstanceState) {
+	 * 
+	 * //luodaan näkymä xml tiedostosta View view =
+	 * inflater.inflate(R.layout.calendar_layout, container, false);
+	 * 
+	 * //haetaan xml tiedostosta näppäimen id Button add_button = (Button)
+	 * view.findViewById(R.id.add_button);
+	 * 
+	 * //luodaan kuuntelija näppäimelle add_button.setOnClickListener(new
+	 * View.OnClickListener() {
+	 * 
+	 * 
+	 * 
+	 * @Override public void onClick(View v) { Activity activity =
+	 * getActivity();
+	 * 
+	 * 
+	 * if (activity != null) { Toast.makeText(activity,
+	 * "R.string.toast_you_just_clicked_a_fragment", Toast.LENGTH_LONG).show();
+	 * Log.d("button", "MIKÄ TÄÄ ARVO ON " + activity + v);
+	 * 
+	 * } }
+	 * 
+	 * });
+	 * 
+	 * return view; }
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * /* public void buttonAdd() { Button addButton = new
+	 * Button(getActivity());
+	 * 
+	 * Toast.makeText(getActivity(), "this is my Toast message!!! =)",
+	 * Toast.LENGTH_LONG).show();
+	 * 
+	 * Log.d("ADDBUTTON", "oisko tää paska toiminu"); } kokeilua
+	 */
+
+
+// lisää vielä namiskalle kuva hymiö ::)
+
