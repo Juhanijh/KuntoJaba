@@ -38,15 +38,17 @@ public class MainActivity extends Activity {
 		Log.d("MISSÄ KAATUU", "1");
 		// laitetaan actionbaariin iconit ja nimet tabeille
 		Tab1 = actionBar.newTab().setText("Calendar").setIcon(R.drawable.ic_action_event);
-	//	Tab1 = actionBar.newTab().setIcon(R.drawable.tab1);
+
 		Tab2 = actionBar.newTab().setText("Log Workout").setIcon(R.drawable.ic_action_new);
 	//	Tab3 = actionBar.newTab().setText("Tab3");
 		Log.d("MISSÄ KAATUU", "2");
+		
 		// tab listenerit kuntoon
 		Tab1.setTabListener(new TabListener(calendarActivity));
 		Tab2.setTabListener(new TabListener(logActivity));
 	//	Tab3.setTabListener(new TabListener(fragmentTab3));
 		Log.d("MISSÄ KAATUU", "3");
+		
 		// lisätään actionbaariin kaks "tabia"
 		actionBar.addTab(Tab1);
 		actionBar.addTab(Tab2);

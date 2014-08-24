@@ -1,6 +1,7 @@
 package com.insinoorityo.kuntojaba;
 
 import android.app.Fragment;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,32 +20,88 @@ public class CalendarActivity extends Fragment {
 
 	GridView grid_august;
 	GridView grid_september;
+	GridView grid_dayofweek;
+	View BackgroundView;
 	public static ArrayAdapter<String> daysList;
+	
+	String[] dayofweek = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
+	
+	String[] august = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+			"11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21",
+			"22", "23", "24", "25", "26", "27", "28", "29", "30", "31" };
 	
 	String[] september = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
 			"11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21",
-			"22", "23", "24", "25", "26", "27", "28", "29", "30", "31" };
+			"22", "23", "24", "25", "26", "27", "28", "29", "30" };
+	
+	
 	
 	@Override
 	public View onCreateView(LayoutInflater inlater, ViewGroup container,
 			Bundle savedInstanceState) {
-		Log.d("MISSÄ KAATUU", "4");
 		
-		
+		//käytetään calendar_layout2 viewiä 
 		View rootView = inlater.inflate(R.layout.calendar_layout2, container, false);
 
-		//grid_august = (GridView)rootView.findViewById(R.id.grid_august);
-		//grid_august.setAdapter(new ArrayAdapter(getActivity(), 0));
 		
-		Log.d("MISSÄ KAATUU", "5");
-		Log.d("MISSÄ KAATUU", "5,1");
+		grid_dayofweek = (GridView)rootView.findViewById(R.id.grid_dayofweek);
+		daysList = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, dayofweek);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, dayofweek);
+		grid_dayofweek.setAdapter(adapter);
+		
+//**************************************************************************************************************	
+		grid_august = (GridView)rootView.findViewById(R.id.grid_august);
+		daysList = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, august);
+		final ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, august);
+		grid_august.setAdapter(adapter2);
+		
+		
+		grid_august.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+					@Override
+					
+					public void onItemClick(AdapterView<?> parent, View view,
+							int position, long id) {
+						Toast.makeText(getActivity(), "You Clicked at " + august[+position],
+						Toast.LENGTH_SHORT).show();
+						Log.d("CLIKKAUS", "MIKÄS VITTU TÄÄ ARVO ON TÄS " + id);
+				/*
+						grid_august.setSelector(R.color.background_color_selector);
+						grid_august.setItemChecked(position, true);
+						grid_august.setSelection(position);
+						grid_august.setSelected(true);
+					*/
+						
+						//view.setBackgroundResource(R.color.background_color_selector);
+						grid_august.getChildAt(position).setBackgroundColor(Color.GREEN);
+						adapter2.notifyDataSetChanged();
+						
+						
+
+						
+						
+						
+						
+						
+						
+						
+						/*KAKKA merkkaa vaa yhen päivän
+						if(BackgroundView != null)
+							BackgroundView.setBackgroundColor(Color.WHITE);
+						
+						view.setBackgroundColor(Color.GREEN);
+						BackgroundView = view;				
+						
+						
+						adapter2.notifyDataSetChanged();
+						*/
+					}
+				});
+			
+//***************************************************************************************************************
 		grid_september = (GridView)rootView.findViewById(R.id.grid_september);
-		Log.d("MISSÄ KAATUU", "5,5");
 		daysList = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, september);
-		ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, september);
-		Log.d("MISSÄ KAATUU", "6");
-		grid_september.setAdapter(adapter2);
-		Log.d("MISSÄ KAATUU", "7");
+		final ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, september);
+		grid_september.setAdapter(adapter3);
 		
 		
 		grid_september.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -52,14 +109,19 @@ public class CalendarActivity extends Fragment {
 					
 					public void onItemClick(AdapterView<?> parent, View view,
 							int position, long id) {
-						Log.d("MISSÄ KAATUU", "7,5");
 						Toast.makeText(getActivity(), "You Clicked at " + september[+position],
 						Toast.LENGTH_SHORT).show();
-						Log.d("MISSÄ KAATUU", "8");
 					}
 				});
-
-		Log.d("MISSÄ KAATUU", "9");
+//***************************************************************************************************************
+		
+		
+		
+		
+		
+		
+		
+		
 		return rootView;
 		
 	}
