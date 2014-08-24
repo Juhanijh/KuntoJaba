@@ -16,12 +16,18 @@
 		<item value="124" key="DIALOG_Y_ORIGIN"/>
 		<item value="-2" key="DIALOG_X_ORIGIN"/>
 	</section>
+	<section name="ZipFileImportWizard">
+		<item value="false" key="WizardZipFileResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
+		<list key="WizardZipFileResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="C:\Users\Juqu\Downloads\opencsv-2.3-src-with-libs.tar.gz"/>
+		</list>
+	</section>
 	<section name="ShowViewDialog">
 		<item value="311" key="DIALOG_WIDTH"/>
 		<item value="org.eclipse.team.ui.GenericHistoryView" key="ShowViewDialog.STORE_SELECTED_VIEW_ID"/>
 		<item value="228" key="DIALOG_Y_ORIGIN"/>
-		<item value="438" key="DIALOG_HEIGHT"/>
 		<item value="391" key="DIALOG_X_ORIGIN"/>
+		<item value="438" key="DIALOG_HEIGHT"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<list key="ShowViewDialog.STORE_EXPANDED_CATEGORIES_ID">
 			<item value="org.eclipse.egit.ui.GitCategory"/>
@@ -29,8 +35,9 @@
 		</list>
 	</section>
 	<section name="ImportExportAction">
-		<item value="com.android.ide.eclipse.adt.project.ImportProjectWizard" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
+		<item value="org.eclipse.ui.wizards.import.ZipFile" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
 		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
 			<item value="com.android.ide.eclipse.wizards.category"/>
 		</list>
 	</section>
