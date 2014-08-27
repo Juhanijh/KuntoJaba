@@ -2,9 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:clickable="true"
     android:orientation="vertical"
-    tools:context=".MainActivity" 
-    android:clickable="true">
+    tools:context=".MainActivity" >
 
     <ScrollView
         android:layout_width="match_parent"
@@ -13,8 +13,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" 
-            android:clickable="true">
+            android:clickable="true"
+            android:orientation="vertical" >
 
             <TextView
                 android:layout_width="fill_parent"
@@ -22,31 +22,40 @@
                 android:gravity="center"
                 android:text="August 2014"
                 android:textSize="30dp" />
-            
+
             <GridView
                 android:id="@+id/grid_dayofweek"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:columnWidth="100dp"
+                android:clickable="false"
+                android:columnWidth="105dp"
                 android:gravity="center"
                 android:numColumns="7"
                 android:stretchMode="columnWidth"
                 android:textAlignment="center" >
             </GridView>
 
-            <GridView
-                android:id="@+id/grid_august"
-                android:layout_width="wrap_content"
-                android:layout_height="320dp"
-                android:listSelector="@color/background_color_selector"
-                android:drawSelectorOnTop="true"
-                android:columnWidth="100dp"
-                android:gravity="center"
-                android:numColumns="7"
-                android:stretchMode="columnWidth"
-                android:textAlignment="center" 
-                android:clickable="true" >
-            </GridView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/green"
+                android:clickable="true"
+                android:orientation="vertical" >
+
+                <GridView
+                    android:id="@+id/grid_august"
+                    android:layout_width="wrap_content"
+                    android:layout_height="320dp"
+                    android:clickable="true"
+                    android:columnWidth="100dp"
+                    android:drawSelectorOnTop="true"
+                    android:gravity="center"
+                    android:listSelector="@color/background_color_selector"
+                    android:numColumns="7"
+                    android:stretchMode="columnWidth"
+                    android:textAlignment="center" >
+                </GridView>
+            </LinearLayout>
 
             <TextView
                 android:layout_width="fill_parent"
@@ -64,7 +73,6 @@
                 android:numColumns="7"
                 android:stretchMode="columnWidth"
                 android:textAlignment="center" />
-            
         </LinearLayout>
     </ScrollView>
 

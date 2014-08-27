@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;motivation_database_new2.csv&apos; to &apos;Kuntojaba/src/com.insinoorityo.kuntojaba&apos;&#x0D;&#x0A;- Original project: &apos;Kuntojaba&apos;&#x0D;&#x0A;- Destination element: &apos;Kuntojaba/src/com.insinoorityo.kuntojaba&apos;&#x0D;&#x0A;- Original element: &apos;motivation_database_new2.csv&apos;" description="Copy file" destination="/src&lt;com.insinoorityo.kuntojaba" element1="assets/motivation_database_new2.csv" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1409132760535" units="0" version="1.0"/>
+</session>

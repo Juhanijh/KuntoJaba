@@ -63,7 +63,7 @@ public class CalendarActivity extends Fragment {
 							int position, long id) {
 						Toast.makeText(getActivity(), "You Clicked at " + august[+position],
 						Toast.LENGTH_SHORT).show();
-						Log.d("CLIKKAUS", "MIKÄS VITTU TÄÄ ARVO ON TÄS " + id);
+						Log.d("GridView", "Klikattu päivämäärää: " + id);
 				/*
 						grid_august.setSelector(R.color.background_color_selector);
 						grid_august.setItemChecked(position, true);
@@ -71,8 +71,9 @@ public class CalendarActivity extends Fragment {
 						grid_august.setSelected(true);
 					*/
 						
-						//view.setBackgroundResource(R.color.background_color_selector);
+				//		view.setBackgroundResource(R.color.background_color_selector);
 						grid_august.getChildAt(position).setBackgroundColor(Color.GREEN);
+					//	grid_august.getRootView().setBackgroundColor(Color.GREEN);
 						adapter2.notifyDataSetChanged();
 						
 						
