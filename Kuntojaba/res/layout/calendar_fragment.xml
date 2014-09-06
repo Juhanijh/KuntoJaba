@@ -1,7 +1,7 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:clickable="true"
     android:orientation="vertical"
     tools:context=".MainActivity" >
@@ -26,7 +26,7 @@
             <GridView
                 android:id="@+id/grid_dayofweek"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:clickable="false"
                 android:columnWidth="105dp"
                 android:gravity="center"
@@ -38,7 +38,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/green"
                 android:clickable="true"
                 android:orientation="vertical" >
 
@@ -50,7 +49,6 @@
                     android:columnWidth="100dp"
                     android:drawSelectorOnTop="true"
                     android:gravity="center"
-                    android:listSelector="@color/background_color_selector"
                     android:numColumns="7"
                     android:stretchMode="columnWidth"
                     android:textAlignment="center" >
@@ -76,4 +74,4 @@
         </LinearLayout>
     </ScrollView>
 
-</LinearLayout>
+</RelativeLayout>
