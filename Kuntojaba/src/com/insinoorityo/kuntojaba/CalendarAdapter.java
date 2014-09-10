@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
@@ -31,10 +32,25 @@ public class CalendarAdapter extends BaseAdapter {
 	        	 Log.d("kaatuu?","caladapter1,2");
 	         }
 	         
+	         @Override
+				public int getCount() {
+					return items.length;
+				}
+
+				@Override
+				public Object getItem(int position) {
+					return items[position];
+				}
+
+				@Override
+				public long getItemId(int position) {
+					return position;
+				}
+	         
 
 			@Override
 				public View getView(int position, View convertView, ViewGroup parent) {
-	        	 
+
 
 	        	 
 	        	 Log.d("kaatuu?","caladapter1,5");
@@ -48,28 +64,27 @@ public class CalendarAdapter extends BaseAdapter {
 	        	 	Button button = (Button) convertView.findViewById(R.id.grid_item_button);
 	        	 	button.setText(items[position]);
 	        	 	Log.d("kaatuu?","caladapter3");
+	        	 	convertView.setBackgroundColor(Color.BLACK);
+	        	// 	Log.d("calendaradapter", "arvoposition: " + position);
 	        	 	
+	        	 	final View row = convertView;
 	        	 	
+	        	 	button.setOnClickListener(new View.OnClickListener() {
+						public void onClick(View v) {
+							v.setBackgroundResource(R.color.background_color_selector);
+							
+						}
+					});
 	        	 	
 	        	 	
 	        	 
 					return convertView;
+					
+					
+					
 				}
 
-			@Override
-			public int getCount() {
-				return items.length;
-			}
-
-			@Override
-			public Object getItem(int position) {
-				return items[position];
-			}
-
-			@Override
-			public long getItemId(int position) {
-				return position;
-			}
+			
 
 			
 	       

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    
+    android:id="@+id/log_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+     <EditText
+         android:id="@+id/workout_day"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+         android:layout_alignParentLeft="true"
+         android:layout_marginBottom="50dp"
+         android:layout_marginLeft="33dp"
+         android:ems="10"
+         android:text="Workout Day" >
+
+         <requestFocus />
+     </EditText>
+
+     <EditText
+         android:id="@+id/workout_name"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_above="@+id/workout_day"
+         android:layout_alignLeft="@+id/workout_day"
+         android:ems="10"
+         android:text="Workout" />
+
+     <Button
+         android:id="@+id/button1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/workout_day"
+         android:layout_below="@+id/workout_day"
+         android:layout_marginTop="20dp"
+         android:text="Button" />
+
+     <Button
+         android:id="@+id/button2"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignRight="@+id/button1"
+         android:layout_below="@+id/button1"
+         android:layout_marginTop="24dp"
+         android:text="Button" />
+    
+</LinearLayout>

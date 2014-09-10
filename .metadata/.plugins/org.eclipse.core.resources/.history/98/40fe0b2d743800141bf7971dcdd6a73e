@@ -1,0 +1,124 @@
+package com.insinoorityo.kuntojaba;
+
+import com.example.KuntoJaba.R;
+
+import android.app.Fragment;
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteDatabase.CursorFactory;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+public class LogActivity extends Fragment {
+	
+	
+	public static final String KEY_ROWID = "_id";
+	public static final String KEY_NAME = "workout_name";
+	public static final String KEY_DAY = "day_of_workout";
+	
+	private static final String DATABASE_NAME = "WorkoutsDB";
+	private static final String DATABASE_TABLE = "WorkoutsTable";
+	private static final int DATABASE_VERSIO = 1;
+	
+	private DatabaseHelper ourHelper;
+	private SQLite ourContext = null;
+	private SQLiteDatabase ourDatabase;
+	
+	/*
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		View view = inflater.inflate(R.layout.log_fragment, container, false);
+		return view;
+
+	}
+*/
+	
+
+	private static class DatabaseHelper extends SQLiteOpenHelper {
+
+		public DatabaseHelper(Context context) {
+			super(context, DATABASE_NAME, null, DATABASE_VERSIO);
+			
+		}
+
+		@Override
+		public void onCreate(SQLiteDatabase db) {
+			Log.d("tässä ollaa", "logactivity 1");
+			
+			db.execSQL("CREATE TABLE " + DATABASE_TABLE + " ("
+					
+					+ KEY_ROWID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+					+ KEY_NAME + " TEXT NOT NULL, "
+					+ KEY_DAY + " TEXT NOT NULL);"
+					);
+			
+			
+		}
+
+		@Override
+		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+			db.execSQL("DROP TABLE IF EXIST " + DATABASE_TABLE);
+			onCreate(db);
+			
+		}
+		
+		
+		
+	}
+	
+	
+	public LogActivity(SQLite sqLite) {
+		ourContext = sqLite;
+		
+	}
+	
+	public LogActivity() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public LogActivity open(){
+		ourHelper = new DatabaseHelper(ourContext);
+		ourDatabase = ourHelper.getWritableDatabase();
+		return this;
+	}
+	public void close(){
+		ourHelper.close();
+	}
+
+	
+	public long createEntry(String workout, String workout_date) {
+		ContentValues cv = new ContentValues();
+		Log.d("1", "work: " + workout);
+		Log.d("2", "day" + workout_date);
+		cv.put(KEY_NAME, workout);
+		cv.put(KEY_DAY, workout_date);
+		return ourDatabase.insert(DATABASE_TABLE, null, cv);
+		
+	}
+
+	public String getData() {
+
+		String[] columns = new String[] { KEY_ROWID, KEY_NAME, KEY_DAY };
+		Cursor c = ourDatabase.query(DATABASE_TABLE, columns, null, null, null, null, null);
+		String result = "";
+		
+		int iRow = c.getColumnIndex(KEY_ROWID);
+		int iWorkout = c.getColumnIndex(KEY_NAME);
+		int iWorkout_date = c.getColumnIndex(KEY_DAY);
+		
+		for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
+			result = result + c.getString(iRow) + "    " + c.getString(iWorkout) + "    " + c.getString(iWorkout_date) + "\n";
+		}
+		
+		
+		return result;
+	}
+
+}

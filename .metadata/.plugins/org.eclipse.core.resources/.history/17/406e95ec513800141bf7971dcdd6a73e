@@ -1,0 +1,93 @@
+package com.insinoorityo.kuntojaba;
+
+import com.example.KuntoJaba.R;
+
+import android.app.Fragment;
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteDatabase.CursorFactory;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+public class LogActivity extends Fragment {
+	
+	
+	public static final String KEY_ROWID = "_id";
+	public static final String KEY_NAME = "workout_name";
+	public static final String KEY_DAY = "day_of_workout";
+	
+	private static final String DATABASE_NAME = "WorkoutsDB";
+	private static final String DATABASE_TABLE = "WorkoutsTable";
+	private static final int DATABASE_VERSIO = 1;
+	
+	private DatabaseHelper ourHelper;
+	private Context ourContext = null;
+	private SQLiteDatabase ourDatabase;
+	
+	
+	private static class DatabaseHelper extends SQLiteOpenHelper {
+
+		public DatabaseHelper(Context context) {
+			super(context, DATABASE_NAME, null, DATABASE_VERSIO);
+			
+		}
+
+		@Override
+		public void onCreate(SQLiteDatabase db) {
+			
+			db.execSQL("CREATE TABLE " + DATABASE_TABLE + " ("
+					
+					+ KEY_ROWID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+					+ KEY_NAME + " TEXT NOT NULL, "
+					+ KEY_DAY + " TEXT NOT NULL);"
+					);
+			
+			
+		}
+
+		@Override
+		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+			db.execSQL("DROP TABLE IF EXIST " + DATABASE_TABLE);
+			onCreate(db);
+			
+		}
+		
+		
+		
+	}
+	
+	public LogActivity(Context c) {
+		ourContext = c;
+		
+	}
+	
+	public LogActivity open(){
+		ourHelper = new DatabaseHelper(ourContext);
+		ourDatabase = ourHelper.getWritableDatabase();
+		return this;
+	}
+	public void close(){
+		ourHelper.close();
+	}
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		View view = inflater.inflate(R.layout.log_fragment, container, false);
+		return view;
+
+	}
+	public void createEntry(String workout, String workout_date) {
+		ContentValues cv = new ContentValues();
+		cv.put(KEY_NAME, workout);
+		cv.put(KEY_DAY, workout_date);
+		ourDatabase.insert(DATABASE_TABLE, null, cv);
+		
+	}
+
+}

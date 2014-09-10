@@ -1,0 +1,5 @@
+package com.insinoorityo.kuntojaba;
+
+public interface SQLiteOpenHelper {
+
+}

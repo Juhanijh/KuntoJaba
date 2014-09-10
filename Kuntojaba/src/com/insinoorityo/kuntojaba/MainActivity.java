@@ -3,6 +3,7 @@ package com.insinoorityo.kuntojaba;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -16,13 +17,14 @@ public class MainActivity extends Activity {
 	//luodaan fragmentit javaluokista CalendarActivity ja logActivity
 	//java luokissa pit‰‰ olla extends fragment, muuten ei toimi
 	Fragment calendarActivity = new CalendarActivity();
-	Fragment logActivity = new LogActivity();
+	Fragment logActivity = new SQLite();
 	Fragment quotesactivity = new QuotesActivity();
 
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+		
 		
 		ActionBar actionBar = getActionBar();
 

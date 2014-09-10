@@ -4,3 +4,5 @@ INDEX VERSION 1.126+K:\Metropolia\opinnaytetyo_halkola_koodi\.metadata\.plugins\
 2720855312.index
 2234776858.index
 3435436028.index
+3290390128.index
+3632102134.index
