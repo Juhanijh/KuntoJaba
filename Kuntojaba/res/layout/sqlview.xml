@@ -1,17 +1,22 @@
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical" >
-    
-    
-    
-    <TextView 
-    android:id="@+id/tv_workout_data"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" 
-    android:text="Data here">
-   
-</TextView>
+    android:layout_height="wrap_content" >
 
-</LinearLayout>
+    <LinearLayout
+        
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_workout_data"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Data here"
+            android:textSize="20dp" >
+        </TextView>
+    </LinearLayout>
+
+</ScrollView>

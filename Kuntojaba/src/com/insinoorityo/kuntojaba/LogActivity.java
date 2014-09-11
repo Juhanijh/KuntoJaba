@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -83,7 +84,7 @@ public class LogActivity extends Fragment {
 		// TODO Auto-generated constructor stub
 	}
 
-	public LogActivity open(){
+	public LogActivity open() throws SQLException{
 		ourHelper = new DatabaseHelper(ourContext);
 		ourDatabase = ourHelper.getWritableDatabase();
 		return this;
@@ -119,6 +120,11 @@ public class LogActivity extends Fragment {
 		
 		
 		return result;
+	}
+
+	public void deleteExercise(long long_row_id) {
+		ourDatabase.delete(DATABASE_TABLE, KEY_ROWID + "=" + long_row_id, null);
+		
 	}
 
 }
