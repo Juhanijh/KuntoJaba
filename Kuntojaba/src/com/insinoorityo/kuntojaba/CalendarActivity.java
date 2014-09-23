@@ -1,5 +1,7 @@
 package com.insinoorityo.kuntojaba;
 
+import java.util.Calendar;
+
 import android.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +23,7 @@ public class CalendarActivity extends Fragment {
 	    	View rootView = inlater.inflate(R.layout.calendar_fragment2, container, false);
 	    	
 	    	cal = (CalendarView)rootView.findViewById(R.id.calendarView);
+	    	cal.setFirstDayOfWeek(Calendar.MONDAY);
 		
 		
 				return rootView;

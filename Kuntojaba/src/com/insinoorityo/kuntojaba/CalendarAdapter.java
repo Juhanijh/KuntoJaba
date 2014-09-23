@@ -53,9 +53,9 @@ public class CalendarAdapter extends BaseAdapter {
 
 
 	        	 
-	        	 Log.d("kaatuu?","caladapter1,5");
+	        	 Log.d("getView","Before if sentence");
 	        	 	if(convertView == null) {
-	        	 		Log.d("kaatuu?","caladapter2");
+	        	 		Log.d("getView","inside if sentence ");
 	        	 		//k‰ytet‰‰n item_gridviewi‰ layouttina, joka sis‰lt‰‰ vain yhen napin
 	        	 		convertView = inflater.inflate(R.layout.item_gridview, null);
 	        	 	}
