@@ -2,7 +2,9 @@ package com.insinoorityo.kuntojaba;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
@@ -59,6 +61,28 @@ public class MainActivity extends Activity {
 		Log.d("MISSÄ KAATUU", "4");
 		
 	}
+
+
+	@Override
+	public void onBackPressed() {
+		
+		//super.onBackPressed();
+		
+		new AlertDialog.Builder(this)
+			.setMessage("Do you want to quit?")
+			.setCancelable(false)
+			.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					MainActivity.this.finish();
+				}
+			})
+			.setNegativeButton("No", null)
+			.show();
+	}
+	
+	
 
 	
 }
